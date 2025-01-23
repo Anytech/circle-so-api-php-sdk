@@ -151,8 +151,7 @@ final class Members extends AbstractEndpoint implements EndpointInterface
      * Invite Member to Community
      */
     public function invite(string $email, ?int $communityId = null): mixed {
-        $this->ensureCommunityIdIsPresent($communityId);
-
+        
         $endpoint =  "/community_members/";
 
         $data = [
@@ -160,6 +159,7 @@ final class Members extends AbstractEndpoint implements EndpointInterface
         ];
 
         if (!empty($communityId)) {
+            $this->ensureCommunityIdIsPresent($communityId);
             $data['community_id'] = $communityId;
         }
 
