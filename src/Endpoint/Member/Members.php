@@ -159,7 +159,7 @@ final class Members extends AbstractEndpoint implements EndpointInterface
             'email' => $email,
         ];
 
-        if ($communityId) {
+        if (!empty($communityId)) {
             $data['community_id'] = $communityId;
         }
 
